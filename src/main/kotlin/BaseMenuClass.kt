@@ -63,10 +63,4 @@ abstract class BaseMenuClass(var title: String, val archives: MutableList<Archiv
         }
         return true
     }
-
-    fun listArchive(archives: MutableList<Archive>) {
-        val archiveList = ArchiveList(archives)
-        archiveList.showMenu()
-    }
-
 }

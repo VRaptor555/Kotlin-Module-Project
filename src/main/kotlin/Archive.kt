@@ -8,6 +8,8 @@ class Archive(name: String): UnitsClass(name = name) {
 
     fun printNotes(index: Int) {
         val note = noteList[index]
-        println("${GREEN_COLOR}Заметка: ${CYAN_COLOR}${note.name}\n${GREEN_COLOR}Текст заметки: ${DEFAULT_COLOR}${note.text}")
+        println("${GREEN_COLOR}Архив: ${CYAN_COLOR}$name")
+        println("${GREEN_COLOR}Заметка: ${CYAN_COLOR}${note.name}")
+        println("${GREEN_COLOR}Текст заметки: ${DEFAULT_COLOR}${note.text}")
     }
 }

@@ -10,7 +10,7 @@ class MenuOpenNote(
         var index = 0
         var iterator = archives[tmpIndex].noteList.iterator()
         for ((indx, note) in iterator.withIndex()) {
-            addMenuItem(BaseMenuItem(indx, note.name, { openNote(indx)}))
+            addMenuItem(BaseMenuItem(indx, note.name) { openNote(indx) })
             index = indx + 1
         }
         addMenuItem(BaseMenuItem(index, "Выход").setAsExit())

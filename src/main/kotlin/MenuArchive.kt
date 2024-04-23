@@ -5,15 +5,25 @@ class MenuArchive(arch: MutableList<Archive>): BaseMenuClass("Меню архи�
         addMenuItem(BaseMenuItem(2, "Выход").setAsExit())
     }
 
-    fun createArchive(archives: MutableList<Archive>) {
+    private fun createArchive(archives: MutableList<Archive>) {
         println()
-        println("${DOWN_PEN}Создаем архив.$DEFAULT_COLOR")
+        println("${DOWN_PEN}Создаем архив:$DEFAULT_COLOR")
         if (createCommandText("Введите название"))
         {
-            val archiv = Archive(textCreated)
-            archives.add(archiv)
-            println()
-            println("${YELLOW_COLOR}Архив ${CYAN_COLOR}$textCreated${YELLOW_COLOR} - создан.$DEFAULT_COLOR")
+            val search = archives.find { it.name.lowercase().equals(textCreated.lowercase()) }
+            if (search == null) {
+                val archiv = Archive(textCreated)
+                archives.add(archiv)
+                println()
+                println("${YELLOW_COLOR}Архив ${CYAN_COLOR}$textCreated${YELLOW_COLOR} - создан.$DEFAULT_COLOR")
+            } else {
+                println("${RED_COLOR}Архив с таким именем уже существует!${DEFAULT_COLOR}")
+            }
         }
+    }
+
+    private fun listArchive(archives: MutableList<Archive>) {
+        val archiveList = ArchiveList(archives)
+        archiveList.showMenu()
     }
 }
